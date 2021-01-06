@@ -1,11 +1,11 @@
 float theta = 0;
 float earthSize = 32;
-int colorJ1 = 153;
-int colorJ2 = 115;
-boolean flag = true;
+//int colorJ1 = 153;
+//int colorJ2 = 115;
+//boolean flag = true;
 
 void setup() {
-  size(1000, 1000);
+  fullScreen();
 }
 
 void draw() {
@@ -19,7 +19,7 @@ void draw() {
 
   //Mercury
   pushMatrix();
-  rotate(theta*5);
+  rotate(theta*4.14);
   translate(150, 0);
   fill(219, 206, 202);
   ellipse(0, 0, earthSize*0.4, earthSize*0.4);
@@ -27,7 +27,7 @@ void draw() {
   
   //Venus
   pushMatrix();
-  rotate(theta*2);
+  rotate(theta*1.62);
   translate(200, 0);
   fill(255, 240, 179);
   ellipse(0, 0, earthSize*0.9, earthSize*0.9);
@@ -43,7 +43,7 @@ void draw() {
   
   //Moon
   pushMatrix(); 
-  rotate(-theta*4);
+  rotate(-theta*13);
   translate(25, 0);
   fill(202, 202, 202);
   ellipse(0, 0, 12, 12);
@@ -53,13 +53,13 @@ void draw() {
   
   //Mars
   pushMatrix();
-  rotate(theta*2);
+  rotate(theta*0.53);
   translate(290, 0);
   fill(204, 102, 0);
   ellipse(0, 0, earthSize*0.5, earthSize*0.5);
   
   pushMatrix();
-  rotate(theta*2);
+  rotate(theta*13);
   translate(20, 0);
   fill(202, 202, 202);
   ellipse(0, 0, 5, 5);
@@ -70,24 +70,31 @@ void draw() {
   
   //Jupiter
   pushMatrix();
-  rotate(theta*0.8);
+  rotate(theta*0.25);
   translate(380, 0);
-  if(colorJ1 >= 204){
-   flag = false; 
-  }
-  else if(colorJ1 <= 153){
-   flag = true; 
-  }
-  if(flag){
-  colorJ1++;
-  colorJ2++;
-  }
-  else{
-  colorJ1--;
-  colorJ2--; 
-  }
-  fill(colorJ1, colorJ2, 0);
+  //if(colorJ1 >= 204){
+  // flag = false; 
+  //}
+  //else if(colorJ1 <= 153){
+  // flag = true; 
+  //}
+  //if(flag){
+  //colorJ1++;
+  //colorJ2++;
+  //}
+  //else{
+  //colorJ1--;
+  //colorJ2--; 
+  //}
+  noStroke();
+  fill(216,202,157);
   ellipse(0, 0, earthSize*3, earthSize*3);
+  fill(165,145,134);
+  ellipse(0, 0, earthSize*3-10, earthSize*3-10);
+  fill(201,144,57);
+  ellipse(0, 0, earthSize*3-20, earthSize*3-20);
+  fill(216,202,157);
+  ellipse(0, 0, earthSize*3-30, earthSize*3-30);
   
   pushMatrix();
   rotate(theta*3);
@@ -112,16 +119,27 @@ void draw() {
   
   popMatrix();
   
+  
+  //Saturn
   pushMatrix();
-  rotate(theta);
+  rotate(theta*0.18);
   translate(500, 0);
-  fill(255, 255, 0);
-  ellipse(0, 0, earthSize*2.5, earthSize*2.5);
-  fill(0);
-  ellipse(0, 0, earthSize*2.5 - 15, earthSize*2.5 - 15);
-  fill(255, 255, 0);
+  //fill(255, 255, 0);
+  //ellipse(0, 0, earthSize*2.5, earthSize*2.5);
+  //fill(0);
+  //ellipse(0, 0, earthSize*2.5 - 15, earthSize*2.5 - 15);
+  fill(255, 255, 153);
   ellipse(0, 0, earthSize*2.5 - 30, earthSize*2.5 - 30);
+  for(int i = 0;i<500;i++){
+  pushMatrix();
+  rotate(theta*i*0.1);
+  translate(random(40, 50), 0);
+  fill(255, 255, 153);
+  ellipse(0, 0, 2, 2);
+  popMatrix(); 
+  }
   popMatrix();
+  
 
   //popMatrix();
 
